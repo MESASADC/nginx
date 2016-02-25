@@ -1,1 +1,1 @@
-docker build -t mesa/nginx .
+docker build -t mesasadc/nginx:local .
