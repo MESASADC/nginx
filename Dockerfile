@@ -1,13 +1,14 @@
 FROM debian:jessie
 
-RUN sed 's/main$/main universe/' -i /etc/apt/sources.list
+RUN echo deb http://nginx.org/packages/debian/ jessie nginx >> /etc/apt/sources.list
+RUN echo deb-src http://nginx.org/packages/debian/ jessie nginx >> /etc/apt/sources.list
 
-RUN apt-get update && apt-get -y -qq install nginx
+RUN apt-get update && apt-get -y --force-yes install nginx
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ADD sites:/etc/nginx/sites-enabled
+ADD sites /etc/nginx/sites-enabled
 
 VOLUME /etc/nginx/sites-enabled
 VOLUME /var/www
