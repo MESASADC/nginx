@@ -2,4 +2,4 @@ set -x
 
 MESA_ROOT=$PWD/..
 
-docker run -t --rm -p 80:80 -p 8000:8000 -v $MESA_ROOT/nginx/sites:/etc/nginx/sites-enabled -v $MESA_ROOT/nginx/www:/var/www/ mesa/nginx 
+docker run -t --rm -p 90:80 mesasadc/nginx:local 
