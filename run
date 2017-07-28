@@ -2,4 +2,4 @@ set -x
 
 MESA_ROOT=$PWD/..
 
-docker run -t --rm -p 90:80 mesasadc/nginx:local 
+docker run -t --rm -p 90:80  mesasadc/nginx:pre-operational 
